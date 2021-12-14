@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Tank1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/PublicSans-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/Splitter.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 300
+font_data = ExtResource( 3 )
+
+[node name="TankDisplay" type="Control"]
+anchor_right = 0.4
+anchor_bottom = 0.4
+margin_right = 1152.0
+margin_bottom = 648.0
+rect_scale = Vector2( 0.4, 0.4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 3000.0
+margin_bottom = 750.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tank Image" type="TextureRect" parent="Panel"]
+margin_left = 100.0
+margin_top = 70.0
+margin_right = 700.0
+margin_bottom = 670.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tank Name" type="Label" parent="Panel"]
+margin_left = 800.0
+margin_top = 195.0
+margin_right = 2291.0
+margin_bottom = 665.0
+custom_fonts/font = SubResource( 1 )
+text = "Player 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Splitter" type="TextureRect" parent="Panel"]
+margin_left = 2150.0
+margin_top = 45.0
+margin_right = 2225.0
+margin_bottom = 695.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="Panel"]
+margin_left = 2410.0
+margin_top = 197.5
+margin_right = 2800.0
+margin_bottom = 550.5
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

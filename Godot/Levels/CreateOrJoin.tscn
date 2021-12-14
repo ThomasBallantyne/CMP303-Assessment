@@ -1,0 +1,239 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Assets/MetalPlate.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/CreateOrJoin.gd" type="Script" id=2]
+[ext_resource path="res://Assets/CreateTitle.png" type="Texture" id=3]
+[ext_resource path="res://Assets/JoinTitle.png" type="Texture" id=4]
+[ext_resource path="res://Assets/CreateButtonHover.png" type="Texture" id=6]
+[ext_resource path="res://Assets/CreateButton.png" type="Texture" id=7]
+[ext_resource path="res://Assets/JoinButtonHover.png" type="Texture" id=8]
+[ext_resource path="res://Assets/JoinButton.png" type="Texture" id=9]
+[ext_resource path="res://Assets/MainFont.tres" type="DynamicFont" id=10]
+
+[node name="CreateOrJoin" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -520, 99 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tabs" type="Tabs" parent="."]
+margin_right = 40.0
+margin_bottom = 24.0
+
+[node name="CreateLobbyPanel" type="Panel" parent="Tabs"]
+margin_left = 120.0
+margin_top = 90.0
+margin_right = 870.0
+margin_bottom = 990.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Tabs/CreateLobbyPanel"]
+margin_left = -13.0
+margin_right = 787.0
+margin_bottom = 200.0
+texture = ExtResource( 3 )
+
+[node name="CreateButton" type="TextureButton" parent="Tabs/CreateLobbyPanel"]
+margin_left = -29.0
+margin_top = 701.0
+margin_right = 771.0
+margin_bottom = 901.0
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JoinLobbyPanel" type="Panel" parent="Tabs"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 1010.0
+margin_top = 90.0
+margin_right = 1760.0
+margin_bottom = 990.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Tabs/JoinLobbyPanel"]
+margin_left = -8.0
+margin_right = 792.0
+margin_bottom = 200.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnterIP" type="LineEdit" parent="Tabs/JoinLobbyPanel"]
+margin_left = 119.0
+margin_top = 220.0
+margin_right = 657.0
+margin_bottom = 414.0
+custom_fonts/font = ExtResource( 10 )
+max_length = 15
+placeholder_text = "Lobby IP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JoinButton" type="TextureButton" parent="Tabs/JoinLobbyPanel"]
+margin_left = -29.0
+margin_top = 701.0
+margin_right = 771.0
+margin_bottom = 901.0
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ServerJoinFailed" type="PopupDialog" parent="."]
+margin_left = 656.0
+margin_top = 272.0
+margin_right = 1277.0
+margin_bottom = 593.0
+
+[node name="Failure Message" type="Label" parent="ServerJoinFailed"]
+margin_left = 21.0
+margin_top = 33.0
+margin_right = 1159.0
+margin_bottom = 174.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = ExtResource( 10 )
+text = "Failed to join Server"
+align = 1
+
+[node name="Tip" type="Label" parent="ServerJoinFailed"]
+margin_left = 76.0
+margin_top = 105.0
+margin_right = 1214.0
+margin_bottom = 246.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_fonts/font = ExtResource( 10 )
+text = "(Check entered IP)"
+align = 1
+
+[node name="ClientRetryButton" type="Button" parent="ServerJoinFailed"]
+margin_left = 50.0
+margin_top = 200.0
+margin_right = 510.0
+margin_bottom = 374.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = ExtResource( 10 )
+text = "Retry"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClientCloseButton" type="Button" parent="ServerJoinFailed"]
+margin_left = 325.0
+margin_top = 200.0
+margin_right = 785.0
+margin_bottom = 374.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = ExtResource( 10 )
+text = "Close"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ServerCreateFailed" type="PopupDialog" parent="."]
+margin_left = 656.0
+margin_top = 272.0
+margin_right = 1277.0
+margin_bottom = 593.0
+
+[node name="Failure Message" type="Label" parent="ServerCreateFailed"]
+margin_left = 21.0
+margin_top = 33.0
+margin_right = 1159.0
+margin_bottom = 174.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = ExtResource( 10 )
+text = "Failed to create Server"
+align = 1
+
+[node name="Tip" type="Label" parent="ServerCreateFailed"]
+margin_left = 76.0
+margin_top = 105.0
+margin_right = 1214.0
+margin_bottom = 246.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_fonts/font = ExtResource( 10 )
+text = "(Server with same IP may exist)"
+align = 1
+
+[node name="ServerRetryButton" type="Button" parent="ServerCreateFailed"]
+margin_left = 50.0
+margin_top = 200.0
+margin_right = 510.0
+margin_bottom = 374.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = ExtResource( 10 )
+text = "Retry"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ServerCloseButton" type="Button" parent="ServerCreateFailed"]
+margin_left = 325.0
+margin_top = 200.0
+margin_right = 785.0
+margin_bottom = 374.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = ExtResource( 10 )
+text = "Close"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ServerLost" type="PopupDialog" parent="."]
+margin_left = 656.0
+margin_top = 272.0
+margin_right = 1277.0
+margin_bottom = 593.0
+
+[node name="Failure Message" type="Label" parent="ServerLost"]
+margin_left = 21.0
+margin_top = 33.0
+margin_right = 1159.0
+margin_bottom = 174.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = ExtResource( 10 )
+text = "Lost Connection 
+to Server"
+align = 1
+
+[node name="CloseButton" type="Button" parent="ServerLost"]
+margin_left = 200.0
+margin_top = 200.0
+margin_right = 660.0
+margin_bottom = 374.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = ExtResource( 10 )
+text = "Close"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Tabs/CreateLobbyPanel/CreateButton" to="." method="_on_CreateButton_pressed"]
+[connection signal="pressed" from="Tabs/JoinLobbyPanel/JoinButton" to="." method="_on_JoinButton_pressed"]
+[connection signal="button_up" from="ServerJoinFailed/ClientRetryButton" to="." method="_on_ClientRetryButton_button_up"]
+[connection signal="button_up" from="ServerJoinFailed/ClientCloseButton" to="." method="_on_ClientCloseButton_button_up"]
+[connection signal="button_up" from="ServerCreateFailed/ServerRetryButton" to="." method="_on_ServerRetryButton_button_up"]
+[connection signal="button_up" from="ServerCreateFailed/ServerCloseButton" to="." method="_on_ServerCloseButton_button_up"]
+[connection signal="button_up" from="ServerLost/CloseButton" to="." method="_on_CloseButton_button_up"]

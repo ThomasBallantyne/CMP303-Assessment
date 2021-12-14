@@ -1,0 +1,167 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/LevelTileSet.tres" type="TileSet" id=1]
+[ext_resource path="res://Assets/Tank0Body.png" type="Texture" id=2]
+[ext_resource path="res://Assets/MetalPlate.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/GameLoop.gd" type="Script" id=4]
+[ext_resource path="res://Prefabs/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Tank0Barrel.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Tank2Body.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Tank2Barrel.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Tank3Barrel.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Tank3Body.png" type="Texture" id=10]
+[ext_resource path="res://Prefabs/Block.tscn" type="PackedScene" id=11]
+
+[node name="Factory Line" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 1599.5, 945 )
+scale = Vector2( 1.76012, 1.61111 )
+texture = ExtResource( 3 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 128 )
+format = 1
+tile_data = PoolIntArray( 0, 9, 0, 1, 1, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 6, 2, 0, 7, 2, 0, 8, 2, 0, 9, 2, 0, 10, 2, 0, 11, 2, 0, 12, 2, 0, 13, 2, 0, 14, 2, 0, 15, 2, 0, 16, 2, 0, 17, 2, 0, 18, 2, 0, 19, 2, 0, 20, 2, 0, 21, 2, 0, 22, 2, 0, 23, 3, 0, 24, 9, 0, 65536, 4, 0, 65560, 4, 0, 131072, 7, 0, 131096, 7, 0, 196608, 7, 0, 196611, 0, 0, 196612, 0, 0, 196615, 0, 0, 196616, 0, 0, 196620, 0, 0, 196624, 0, 0, 196625, 0, 0, 196628, 0, 0, 196629, 0, 0, 196632, 7, 0, 262144, 7, 0, 262168, 7, 0, 327680, 7, 0, 327704, 7, 0, 393216, 7, 0, 393240, 7, 0, 458752, 7, 0, 458755, 0, 0, 458756, 0, 0, 458759, 0, 0, 458760, 0, 0, 458764, 0, 0, 458768, 0, 0, 458769, 0, 0, 458772, 0, 0, 458773, 0, 0, 458776, 7, 0, 524288, 7, 0, 524312, 7, 0, 589824, 7, 0, 589848, 7, 0, 655360, 7, 0, 655384, 7, 0, 720896, 7, 0, 720899, 0, 0, 720900, 0, 0, 720903, 0, 0, 720904, 0, 0, 720908, 0, 0, 720912, 0, 0, 720913, 0, 0, 720916, 0, 0, 720917, 0, 0, 720920, 7, 0, 786432, 7, 0, 786456, 7, 0, 851968, 8, 0, 851992, 8, 0, 917504, 9, 0, 917505, 1, 0, 917506, 2, 0, 917507, 2, 0, 917508, 2, 0, 917509, 2, 0, 917510, 2, 0, 917511, 2, 0, 917512, 2, 0, 917513, 2, 0, 917514, 2, 0, 917515, 2, 0, 917516, 2, 0, 917517, 2, 0, 917518, 2, 0, 917519, 2, 0, 917520, 2, 0, 917521, 2, 0, 917522, 2, 0, 917523, 2, 0, 917524, 2, 0, 917525, 2, 0, 917526, 2, 0, 917527, 3, 0, 917528, 9, 0 )
+
+[node name="Tank0" parent="TileMap" instance=ExtResource( 5 )]
+position = Vector2( 195, 197 )
+_id = 0
+
+[node name="TankBodySprite" parent="TileMap/Tank0" index="0"]
+texture = ExtResource( 2 )
+
+[node name="TankBarrelSprite" parent="TileMap/Tank0" index="1"]
+texture = ExtResource( 6 )
+
+[node name="Tank1" parent="TileMap" instance=ExtResource( 5 )]
+position = Vector2( 2290, 301.667 )
+_id = 1
+
+[node name="Tank2" parent="TileMap" instance=ExtResource( 5 )]
+position = Vector2( 765, 1655 )
+_id = 2
+
+[node name="TankBodySprite" parent="TileMap/Tank2" index="0"]
+texture = ExtResource( 7 )
+
+[node name="TankBarrelSprite" parent="TileMap/Tank2" index="1"]
+texture = ExtResource( 8 )
+
+[node name="Tank3" parent="TileMap" instance=ExtResource( 5 )]
+position = Vector2( 2700, 1634 )
+_id = 3
+
+[node name="TankBodySprite" parent="TileMap/Tank3" index="0"]
+texture = ExtResource( 10 )
+
+[node name="TankBarrelSprite" parent="TileMap/Tank3" index="1"]
+texture = ExtResource( 9 )
+
+[node name="Block0" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 705, 448 )
+
+[node name="Block1" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 833, 448 )
+
+[node name="Block2" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 704, 960 )
+
+[node name="Block3" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 832, 960 )
+
+[node name="Block4" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 704, 1472 )
+
+[node name="Block5" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 832, 1472 )
+
+[node name="Block6" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 2368, 447 )
+
+[node name="Block7" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 2496, 447 )
+
+[node name="Block8" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 2367, 959 )
+
+[node name="Block9" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 2495, 959 )
+
+[node name="Block10" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 2367, 1471 )
+
+[node name="Block11" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 2495, 1471 )
+
+[node name="Block12" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 1216, 448 )
+
+[node name="Block13" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 1344, 448 )
+
+[node name="Block14" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 1215, 960 )
+
+[node name="Block15" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 1343, 960 )
+
+[node name="Block16" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 1215, 1472 )
+
+[node name="Block17" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 1343, 1472 )
+
+[node name="Block18" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 1855, 448 )
+
+[node name="Block19" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 1983, 448 )
+
+[node name="Block20" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 1854, 960 )
+
+[node name="Block21" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 1982, 960 )
+
+[node name="Block22" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 1854, 1472 )
+
+[node name="Block23" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 1982, 1472 )
+
+[node name="Block24" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 1472, 449 )
+
+[node name="Block25" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 1725, 448 )
+
+[node name="Block26" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 1472, 960 )
+
+[node name="Block27" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 1724, 960 )
+
+[node name="Block28" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 1472, 1472 )
+
+[node name="Block29" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 1724, 1472 )
+
+[node name="FPS" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MapCamera" type="Camera2D" parent="."]
+position = Vector2( 1606, 965 )
+current = true
+zoom = Vector2( 1.65, 1.75 )
+
+[editable path="TileMap/Tank0"]
+[editable path="TileMap/Tank2"]
+[editable path="TileMap/Tank3"]
